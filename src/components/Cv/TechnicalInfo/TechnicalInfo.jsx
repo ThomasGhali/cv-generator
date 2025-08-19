@@ -1,6 +1,5 @@
 import "./TechnicalInfo.css"
 import SectionsHeader from "../SectionsHeader"
-import './Experience.css'
 import Experience from './Experience'
 import Education from "./Education"
 import Portofolio from './Portofolio'

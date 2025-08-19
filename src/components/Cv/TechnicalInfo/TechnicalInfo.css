@@ -17,9 +17,42 @@
   word-spacing: 5px;
 }
 
-/* ===================
-  PORTOFOLIO SECTION
-=================== */
+/* ========================
+  EXPERIENCE ITEMS STYLES
+ ======================= */
+ .exp {
+  margin-bottom: 10px;
+}
+
+
+.exp-wrapper {
+  display: flex;
+  flex-direction: column;
+  list-style-position: inside;
+  list-style-type: disc;
+  row-gap: 8px;
+}
+
+.exp__title {
+  margin-bottom: 3px;
+}
+
+.exp::marker {
+  font-size: 1.5em; /* Larger bullet size */
+  color: rgb(34, 42, 54); /* Bullet color */
+}
+
+/* ========================
+  EDUCATION SECTION STYLES
+======================== */
+
+.edu__title {
+  font-size: 0.7rem;
+}
+
+/* =========================
+  PORTOFOLIO SECTION STYLES
+========================= */
 
 .project {
   font-size: 0.65rem;
