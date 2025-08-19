@@ -1,0 +1,39 @@
+/* ========================
+  PROFILE SECTION STYLES
+ ======================== */
+
+.profile-wrapper {
+  width: 39%;
+  background-image: linear-gradient(to bottom, #ffc001 15%, rgb(34, 42, 54) 15%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__img {
+  width: 70%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin-top: 15%;
+  /* object-fit: cover; */
+  background: black;
+  box-shadow: 0px 0px 0px 4px #ffc001;
+}
+
+.profile__name-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__name {
+  color: #ffc001;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
