@@ -16,8 +16,31 @@ export default function Profile() {
             </span>
           </div>
           
-        <SectionsHeader text="Contact" iconName="contact" />
+          <section className="contact profile-section">
+            <SectionsHeader text="Contact" iconName="contact" />
+            <div className="contact__info">
+              <div className="contact__section-wrapper">
+                <span className="contact__highlight">Email</span>
+                <p >thomasmetias29@gmail.com</p>
+              </div>
+              <div className="contact__section-wrapper">
+                <span className="contact__highlight">Phone</span>
+                <p>+1 234 567-8900</p>
+                </div>
+              <div className="contact__section-wrapper">
+                <span className="contact__highlight">Website</span>
+                <p>thomasghali.com</p>
+              </div>
+            </div>
+          </section>
 
+          <section className="skills profile-section">
+            <SectionsHeader text="Skills" iconName="skills" />
+          </section>
+
+          <section className="interests profile-section">
+            <SectionsHeader text="Interests" iconName="interests" />
+          </section>
         </section>
       </div>
     </>

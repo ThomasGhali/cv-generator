@@ -14,7 +14,10 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  row-gap: 20px;
   align-items: center;
+  color: rgb(164, 171, 179);
+  font-size: 0.7rem;
 }
 
 .profile__img {
@@ -34,6 +37,32 @@
 
 .profile__name {
   color: #ffc001;
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.profile-section {
+  width: 80%;
+}
+
+/* ===============
+  CONTACT STYLES
+ =============== */
+
+.contact {
+}
+
+.contact__highlight {
+  color: rgb(255, 191, 0);
+}
+
+.contact__info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: start;
+}
+
+.contact__section-wrapper {
 }
