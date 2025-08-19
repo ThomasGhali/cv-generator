@@ -3,7 +3,8 @@
  ======================== */
 
 .profile-wrapper {
-  width: 39%;
+  width: 40%;
+  flex-shrink: 0;
   background-image: linear-gradient(to bottom, #ffc001 15%, rgb(34, 42, 54) 15%);
   display: flex;
   flex-direction: column;
@@ -16,8 +17,8 @@
   flex-direction: column;
   row-gap: 20px;
   align-items: center;
-  color: rgb(164, 171, 179);
-  font-size: 0.7rem;
+  color: rgb(193, 197, 201);
+  font-size: 0.65rem;
 }
 
 .profile__img {
@@ -37,13 +38,14 @@
 
 .profile__name {
   color: #ffc001;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 800;
 }
 
 .profile-section {
   width: 80%;
 }
+
 
 /* ===============
   CONTACT STYLES
@@ -60,9 +62,28 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
+  row-gap: 5px;
   align-items: start;
 }
 
-.contact__section-wrapper {
+.contact__section-wrapper > p {
+  word-break: break-word;
+}
+
+/* ===============
+  SKILLS STYLES
+ =============== */
+
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.level {
+  width: 70px;
+  height: 4px;
+  border-radius: 3px;
+  background-image: linear-gradient(to right, rgb(255, 191, 0) 60%, grey 60%);
 }

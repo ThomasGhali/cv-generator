@@ -17,14 +17,23 @@ const icons = {
   portofolio,
 };
 // in the future it should be passed th icon name
-export default function SectionsHeader({ iconName, text }) {
+export default function SectionsHeader({ iconName, text, font }) {
 
   return (
     <>
       <div className="header">
         <img src={icons[iconName]} className='header__icon' />
         <div className="header__info">
-          <div className="header__name">{text}</div>
+          <div 
+            className="header__name" 
+            style={{
+              color: font === 'gold' ?
+              'rgb(255, 191, 0)' :
+              'black'
+            }}
+          >
+            {text}
+          </div>
           <div className="header__line"></div>
         </div>
       </div>

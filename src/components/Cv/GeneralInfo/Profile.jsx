@@ -17,7 +17,7 @@ export default function Profile() {
           </div>
           
           <section className="contact profile-section">
-            <SectionsHeader text="Contact" iconName="contact" />
+            <SectionsHeader text="Contact" iconName="contact" font="gold" />
             <div className="contact__info">
               <div className="contact__section-wrapper">
                 <span className="contact__highlight">Email</span>
@@ -35,11 +35,28 @@ export default function Profile() {
           </section>
 
           <section className="skills profile-section">
-            <SectionsHeader text="Skills" iconName="skills" />
+            <SectionsHeader text="Skills" iconName="skills" font="gold" />
+            <div className="skill">
+              <span>Photoshop</span>
+              <div className="level"></div>
+            </div>
+            <div className="skill">
+              <span>Photoshop</span>
+              <div className="level"></div>
+            </div>
+            <div className="skill">
+              <span>Photoshop</span>
+              <div className="level"></div>
+            </div>
+
           </section>
 
           <section className="interests profile-section">
-            <SectionsHeader text="Interests" iconName="interests" />
+            <SectionsHeader text="Interests" iconName="interests" font="gold" />
+            <p>minimalist arti</p>
+            <p>pingpong</p>
+            <p>freaking football</p>
+
           </section>
         </section>
       </div>
