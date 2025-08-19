@@ -1,0 +1,16 @@
+/* ========================
+  EXPERIENCE ITEMS STYLES
+ ======================= */
+
+.exp-wrapper {
+  display: flex;
+  flex-direction: column;
+  list-style-position: inside;
+  list-style-type: disc;
+  row-gap: 10px;
+}
+
+.exp__title {
+  margin-bottom: 3px;
+}
+
