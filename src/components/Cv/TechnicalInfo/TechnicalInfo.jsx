@@ -1,6 +1,9 @@
 import "./TechnicalInfo.css"
 import SectionsHeader from "../SectionsHeader"
-import Experience from "./Experience"
+import './Experience.css'
+import Experience from './Experience'
+import Education from "./Education"
+
 
 export default function TechnicalInfo() {
   return (
@@ -12,7 +15,39 @@ export default function TechnicalInfo() {
 
       <section className="experience-section">
         <SectionsHeader text="Experience" iconName="experience" />
-        <Experience />
+        <ul className='exp-list'>
+          <Experience
+            title="Senior Graphic Designer"
+            company="Brightline Agency" 
+            location="New York, Ny" 
+            from="June 2020" 
+            to="Present" 
+            text="Boosted engagement by 30% through brand campaigns and created identity." 
+          />
+          <Experience
+            title="Senior Graphic Designer"
+            company="Brightline Agency" 
+            location="New York, Ny" 
+            from="June 2020" 
+            to="Present" 
+            text="Boosted engagement by 30% through brand campaigns and created identity pachages for social media and prints." 
+          />
+      </ul>
+      </section>
+
+      <section className="education">
+
+      <SectionsHeader iconName='education' text="Education" />
+        <Education 
+          title="Bachelor of Engineering Mechatronics" 
+          college='Canadian International College' 
+          location='New York, NY' 
+          gradYear='2017' 
+        />
+      </section>
+
+      <section className="portofolio">
+        
       </section>
     </div>
   )
