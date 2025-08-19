@@ -11,11 +11,11 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  /* outline: 1px solid red; */
+  outline: 1px solid red;
 }
 
 body {
-  background-color: #f5f5dc;
+  background-color: #f8f5f0;
 }
 
 /* ==============
@@ -29,7 +29,7 @@ body {
   column-gap: 25px;
   padding: 0px 20px;
   /* box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.098); */
-  background: rgb(255, 191, 0);
+  background: rgb(0, 51, 102);
 }
 
 .generator-header__img {
@@ -39,7 +39,8 @@ body {
 .generator-header__text {
   font-family: "Oswald", sans-serif;
   font-size: 2.3rem;
-  font-weight: 300;
+  font-weight: 500;
+  color: rgb(255, 191, 0);
 }
 
 /* ==============

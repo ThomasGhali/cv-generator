@@ -10,8 +10,8 @@ export default function App() {
           <span className="generator-header__text">CV Generator</span>
       </header>
       <main className="main-content">
-        <Cv />
         <Form />
+        <Cv />
       </main>
     </>
   )
