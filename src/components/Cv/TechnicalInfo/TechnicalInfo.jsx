@@ -3,6 +3,7 @@ import SectionsHeader from "../SectionsHeader"
 import './Experience.css'
 import Experience from './Experience'
 import Education from "./Education"
+import Portofolio from './Portofolio'
 
 
 export default function TechnicalInfo() {
@@ -47,7 +48,18 @@ export default function TechnicalInfo() {
       </section>
 
       <section className="portofolio">
-        
+        <SectionsHeader iconName='portofolio' text='Portofolio' />
+        <Portofolio 
+          projectName='Social Media Campaign' 
+          projectFor="Eco Wave Brand" 
+          projectText='transformed their social media presence with cohesive visuals and engagin graphics.' 
+        />
+        <Portofolio 
+          projectName='Social Media Campaign' 
+          projectFor="Eco Wave Brand" 
+          projectText='transformed their social media presence with cohesive visuals and engagin graphics.' 
+        />
+
       </section>
     </div>
   )

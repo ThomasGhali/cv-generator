@@ -17,3 +17,15 @@
   word-spacing: 5px;
 }
 
+/* ===================
+  PORTOFOLIO SECTION
+=================== */
+
+.project {
+  font-size: 0.65rem;
+  margin-bottom: 10px;
+}
+
+.project__name {
+  font-weight: 800;
+}
