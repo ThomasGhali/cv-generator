@@ -59,13 +59,14 @@ export default function Form({ skillsState, contactState, setInterests }) {
             </label>
             <label>
             Skill {index + 1}'s Proficiency
+            <p className='drag-bar-note'>(Drag the golden bar)</p>
               <input 
                 name='range'
                 type="range" 
                 onChange={(e) => handleRangeChange(index, e)} />
             </label>
           </div>
-          {index + 1 === skills.length && <hr />}
+          {index + 1 !== skills.length && <hr />}
         </Fragment>
       )
     )
