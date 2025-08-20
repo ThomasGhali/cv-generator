@@ -14,7 +14,7 @@ export default function App() {
       </header>
       <main className="main-content">
         <Form skills={skills} setSkills={setSkills} />
-        <Cv skillsArr={skills} />
+        <Cv skills={skills} />
       </main>
     </>
   )

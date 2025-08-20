@@ -1,16 +1,26 @@
 import "./Profile.css"
 import SectionsHeader from "../SectionsHeader"
 
-function Skill({ skillName, percent }) {
+function Skill({ range, skillName }) {
   return (
     <div className="skill">
       <span>{skillName}</span>
-      <div className="level" style={{backgroundImage : `linear-gradient(to right, rgb(255, 191, 0) ${percent}%, grey ${percent}%)`}}></div>
+      <div className="level" style={{backgroundImage : `linear-gradient(to right, rgb(255, 191, 0) ${range}%, grey ${range}%)`}}></div>
     </div>
   )
 }
 
-export default function Profile() {
+export default function Profile({ skills }) {
+  function viewSkills() {
+    return skills.map((skill, index) => (
+      <Skill 
+        key={index}
+        range={skill.range} 
+        skillName={skill.skillName} 
+      />
+    ))
+  }
+
   return (
     <>
       <div className="profile-wrapper">
@@ -43,9 +53,10 @@ export default function Profile() {
             </div>
           </section>
 
-          <section className="skills profile-section">
+          {skills.length > 0 && <section className="skills profile-section">
             <SectionsHeader text="Skills" iconName="skills" font="gold" />
-          </section>
+            {viewSkills()}
+          </section>}
 
           <section className="interests profile-section">
             <SectionsHeader text="Interests" iconName="interests" font="gold" />

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 import './Form.css'
 import FormSection from './FormSection'
 
@@ -9,34 +9,53 @@ import FormSection from './FormSection'
 // }
 
 export default function Form({ skills, setSkills}) {
+  // 
   function handleSkillBtn() {
     if (
       skills.length === 0 || // no skills yet
       Object.keys(skills[skills.length -1 ]).length !== 0 // last skill not empty
     ) {
-      return setSkills(prev => [...prev, {}])
+      setSkills(prev => [...prev, {}])
     }
-
-    return
   }
-  function viewSkills() {
-    return skills.map((skill, index) => {
-      return (
-        <>
-        <div className="skill-wrapper">
-          <label>
-            Skill 1's Name 
-            <input type="text" id='' />
-          </label>
-          <label>
-          Skill 1's Proficiency
-            <input type="range" />
-          </label>
-        </div>
-        {index + 1 === skills.length && <hr />}
-        </>
+
+
+
+  // changes the appropiate skill key-value pair
+  function handleRangeChange(index, e) {
+    const { name, value } = e.target
+    setSkills(prev => 
+      prev.map((skill, i) => 
+        i === index ? {...skill, [name]:value} : skill
       )
-    })
+    )
+  }
+
+  function viewSkills() {
+    return skills.map((skill, index) => 
+      (
+        <Fragment key={index}>
+          <div className="skill-wrapper">
+            <label>
+              Skill {index + 1}'s Name 
+              <input 
+                name='skillName'
+                type="text" 
+                onChange={(e) => handleRangeChange(index, e)} 
+              />
+            </label>
+            <label>
+            Skill {index + 1}'s Proficiency
+              <input 
+                name='range'
+                type="range" 
+                onChange={(e) => handleRangeChange(index, e)} />
+            </label>
+          </div>
+          {index + 1 === skills.length && <hr />}
+        </Fragment>
+      )
+    )
   }
 
   return (
@@ -63,7 +82,8 @@ export default function Form({ skills, setSkills}) {
           name="Skills"
         >
           {viewSkills()}
-          <button type='button' onClick={handleSkillBtn}>Add skill</button>
+          <button className='add-skill-btn' type="button" onClick={handleSkillBtn}>Add skill</button>
+          <button type="button" >Reset Skills</button>
         </FormSection>
       </form>
     </>
