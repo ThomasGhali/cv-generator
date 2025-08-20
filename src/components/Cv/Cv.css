@@ -1,7 +1,7 @@
 .cv-wrapper {
   height: 100vh;
   max-height: 297mm;
-  width: 50vw;
+  /* width: 50vw; */
   min-width: 500px;
   max-width: 210mm;
   overflow-y: auto;

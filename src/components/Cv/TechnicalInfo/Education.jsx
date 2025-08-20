@@ -1,5 +1,3 @@
-import './Education.css'
-
 export default function Education({ title, college, location, gradYear }) {
   return (
     <>
