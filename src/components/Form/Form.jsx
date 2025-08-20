@@ -8,7 +8,13 @@ import FormSection from './FormSection'
 //   )
 // }
 
-export default function Form({ skillsState, contactState, setInterests, setProfileDescription }) {
+export default function Form({
+  skillsState,
+  contactState,
+  setInterests,
+  setProfileDescription,
+  setExperience,
+}) {
   const { skills, setSkills } = skillsState;
   const { setEmail, setPhone, setWebsite } = contactState;
 
@@ -71,6 +77,25 @@ export default function Form({ skillsState, contactState, setInterests, setProfi
       )
     )
   }
+  // work on last array item
+  // if last array item has a submit key to value of true make a new object
+  // and set its submit to false
+  function handleExperience(e) {
+    const { name, value } = e.target;
+
+    setExperience(prev => {
+      const last = prev[prev.length - 1];
+
+      if (last.submit) {
+        // if last item is submitted initiate a new one
+        return [...prev, {submit: false, [name]: value }]
+      }
+
+      return prev.map((exp, index) => 
+        index === prev.length - 1 ? {...exp, [name]: value} : exp
+      );
+    })
+  }
 
   return (
     <>
@@ -130,10 +155,57 @@ export default function Form({ skillsState, contactState, setInterests, setProfi
 
         <FormSection
           name="Profile"
-          demo={true}
         >
           <textarea onChange={(e) => setProfileDescription(e.target.value)}></textarea>
           <p className='tiny-note'>(Saved while typing)</p>
+        </FormSection>
+
+        <FormSection
+          name="Experience"
+          demo={true}
+        >
+          <label>
+            Position
+            <input type="text" 
+              placeholder='e.g. Senior Front-End Developer'
+              onChange={(e) => handleExperience(e)}
+            />
+          </label>        
+          <label>
+            Company
+            <input 
+              type="text"
+              name='company'
+              onChange={(e) => handleExperience(e)}
+            />
+          </label>          
+          <label>
+            Location
+            <input 
+              type="text" 
+              name='location'
+              onChange={(e) => handleExperience(e)}
+              placeholder='e.g. New York, NY'
+            />
+          </label>          
+          <label>
+            From
+            <input 
+              type="month"
+              name='from'
+              onChange={(e) => handleExperience(e)}
+            />
+          </label>
+          <label>
+            To
+            <input 
+              type="month"
+              name='to'
+              onChange={(e) => handleExperience(e)}
+            />
+          </label>            
+          <button className='down-margin' type='button'>Add Experience</button>
+          <button type="button">Reset All Experiences</button>
         </FormSection>
       </form>
     </>

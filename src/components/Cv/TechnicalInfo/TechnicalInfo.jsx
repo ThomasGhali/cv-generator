@@ -6,6 +6,10 @@ import Portofolio from './Portofolio'
 
 
 export default function TechnicalInfo({ profileDescription }) {
+  function viewExperience() {
+    
+  }
+
   return (
     <div className="technical-info">
       <section className="profile-section">
@@ -16,22 +20,15 @@ export default function TechnicalInfo({ profileDescription }) {
       <section className="experience-section">
         <SectionsHeader text="Experience" iconName="experience" />
         <ul className='exp-list'>
-          <Experience
-            title="Senior Graphic Designer"
-            company="Brightline Agency" 
-            location="New York, Ny" 
-            from="June 2020" 
-            to="Present" 
-            text="Boosted engagement by 30% through brand campaigns and created identity." 
-          />
-          <Experience
+          {viewExperience()}
+          {/* <Experience
             title="Senior Graphic Designer"
             company="Brightline Agency" 
             location="New York, Ny" 
             from="June 2020" 
             to="Present" 
             text="Boosted engagement by 30% through brand campaigns and created identity pachages for social media and prints." 
-          />
+          /> */}
       </ul>
       </section>
 
