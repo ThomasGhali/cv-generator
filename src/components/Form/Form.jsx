@@ -8,12 +8,24 @@ export default function Form() {
         <FormSection
           name="Contact"
         >
-          <span>hello from form</span>  
+          <label htmlFor="email">Email </label>
+          <input type="email" name="email" id="email" />
+
+          <label htmlFor="phone">Phone </label>
+          <input 
+            type="tel" 
+            placeholder='+1 234 567 890'
+            name="phone" 
+            id="phone"
+          />
+          <label htmlFor="website">Website </label>
+          <input type="url" name="website" id="website" />
+
         </FormSection>
         <FormSection
           name="Skills"
         >
-          <span>hello from form</span>  
+          
         </FormSection>
       </form>
     </>

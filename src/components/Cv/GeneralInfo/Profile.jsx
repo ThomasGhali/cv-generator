@@ -1,6 +1,15 @@
 import "./Profile.css"
 import SectionsHeader from "../SectionsHeader"
 
+function Skill({ skillName, percent }) {
+  return (
+    <div className="skill">
+      <span>{skillName}</span>
+      <div className="level" style={{backgroundImage : `linear-gradient(to right, rgb(255, 191, 0) ${percent}%, grey ${percent}%)`}}></div>
+    </div>
+  )
+}
+
 export default function Profile() {
   return (
     <>
@@ -36,19 +45,7 @@ export default function Profile() {
 
           <section className="skills profile-section">
             <SectionsHeader text="Skills" iconName="skills" font="gold" />
-            <div className="skill">
-              <span>Photoshop</span>
-              <div className="level"></div>
-            </div>
-            <div className="skill">
-              <span>Photoshop</span>
-              <div className="level"></div>
-            </div>
-            <div className="skill">
-              <span>Photoshop</span>
-              <div className="level"></div>
-            </div>
-
+            <Skill percent={20} skillName="sdasd" />
           </section>
 
           <section className="interests profile-section">

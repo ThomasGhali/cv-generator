@@ -1,13 +1,78 @@
 /* ===================
-  FORM SECTION STYLES
+  FORM STYLES
 =================== */
 
 form *{
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 form {
   margin: 10px;
+  padding: 8px;
   width: 350px;
-  border: 1px solid grey;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-image: linear-gradient(to right, #f5f5f5, #ffffff);
+  color: #666666;
+}
+
+/* ===================
+  FORM SECTIONS STYLES
+=================== */
+
+.wrapper {
+  border: 1px solid #ffffff;
+  padding: 4px;
+  margin-bottom: 15px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.click-drop {
+  border-bottom: 1px solid #ddd;
+  border-radius: 5px;
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #222;
+  background: #f6f6f6;
+  cursor: pointer;
+  user-select: none;
+}
+
+label {
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #f1b800;
+  box-shadow: 0 0 6px rgba(241, 184, 0, 0.3);
+}
+
+.click-drop:hover {
+  background: #eeeeee;
+}
+
+.open-close-arrow {
+  color: #f1b800;
+}
+
+.drop-window {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #e6e6e6;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
 }

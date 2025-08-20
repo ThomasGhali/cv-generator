@@ -4,19 +4,19 @@ export default function FormSection({ name, children }) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div className="wrapper">
-      <div 
+    <fieldset className="wrapper">
+      <legend 
         className="click-drop" 
         onClick={() => setIsOpen(prev => !prev)} 
       >
         <span className="section-name">{name}</span>
-        <span className="open-close-arrow">{isOpen ? '"▲"' : "▼"}</span>
-      </div>
+        <span className="open-close-arrow">{isOpen ? "▲" : "▼"}</span>
+      </legend>
       { isOpen && (
         <div className="drop-window">
           {children}
         </div>
       )}
-    </div>
+    </fieldset>
   )
 }

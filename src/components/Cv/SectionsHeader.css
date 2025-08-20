@@ -29,5 +29,5 @@
   height: 3px;
   border-radius: 3px;
   width: 100%;
-  background-image: linear-gradient(to right, rgb(255, 191, 0) 30px, grey 35px);
+  background-image: linear-gradient(to right, rgb(255, 191, 0) 35px, grey 35px);
 }
