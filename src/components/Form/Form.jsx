@@ -1,7 +1,44 @@
+import { useState } from 'react'
 import './Form.css'
 import FormSection from './FormSection'
 
-export default function Form() {
+// function Skill() {
+//   return (
+
+//   )
+// }
+
+export default function Form({ skills, setSkills}) {
+  function handleSkillBtn() {
+    if (
+      skills.length === 0 || // no skills yet
+      Object.keys(skills[skills.length -1 ]).length !== 0 // last skill not empty
+    ) {
+      return setSkills(prev => [...prev, {}])
+    }
+
+    return
+  }
+  function viewSkills() {
+    return skills.map((skill, index) => {
+      return (
+        <>
+        <div className="skill-wrapper">
+          <label>
+            Skill 1's Name 
+            <input type="text" id='' />
+          </label>
+          <label>
+          Skill 1's Proficiency
+            <input type="range" />
+          </label>
+        </div>
+        {index + 1 === skills.length && <hr />}
+        </>
+      )
+    })
+  }
+
   return (
     <>
       <form action="">
@@ -25,7 +62,8 @@ export default function Form() {
         <FormSection
           name="Skills"
         >
-          
+          {viewSkills()}
+          <button type='button' onClick={handleSkillBtn}>Add skill</button>
         </FormSection>
       </form>
     </>

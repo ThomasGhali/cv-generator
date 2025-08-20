@@ -1,8 +1,11 @@
+import { useState } from "react";
 import generatorLogo from "./assets/cv-generator-logo-lq.png"
 import Cv from "./components/Cv/Cv.jsx"
 import Form from "./components/Form/Form.jsx"
 
 export default function App() {
+  const [skills, setSkills] = useState([]);
+
   return(
     <>
       <header className="generator-header">
@@ -10,8 +13,8 @@ export default function App() {
           <span className="generator-header__text">CV Generator</span>
       </header>
       <main className="main-content">
-        <Form />
-        <Cv />
+        <Form skills={skills} setSkills={setSkills} />
+        <Cv skillsArr={skills} />
       </main>
     </>
   )

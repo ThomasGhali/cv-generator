@@ -45,7 +45,6 @@ export default function Profile() {
 
           <section className="skills profile-section">
             <SectionsHeader text="Skills" iconName="skills" font="gold" />
-            <Skill percent={20} skillName="sdasd" />
           </section>
 
           <section className="interests profile-section">
