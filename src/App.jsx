@@ -12,6 +12,7 @@ export default function App() {
 
   const [interests, setInterests] = useState([]);
 
+  const [profileDescription, setProfileDescription] = useState('');
 
   return(
     <>
@@ -24,11 +25,13 @@ export default function App() {
           skillsState={{ skills, setSkills }}
           contactState={{ setEmail, setPhone, setWebsite }}
           setInterests={ setInterests }
+          setProfileDescription={setProfileDescription}
         />
         <Cv 
           contactState={{ email, phone, website }}
           skills={skills}
           interests={interests}
+          profileDescription={profileDescription}
         />
       </main>
     </>

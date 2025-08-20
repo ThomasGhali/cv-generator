@@ -121,7 +121,7 @@ input[type="range"]::-webkit-slider-thumb {
   margin-bottom: 10px;
 }
 
-.drag-bar-note {
+.tiny-note {
   font-size: 0.5rem;
   color: black;
 }

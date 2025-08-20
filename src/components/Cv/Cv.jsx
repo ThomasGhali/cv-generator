@@ -2,7 +2,7 @@ import Profile from "./GeneralInfo/Profile.jsx"
 import TechnicalInfo from "./TechnicalInfo/TechnicalInfo"
 import './Cv.css'
 
-export default function Cv({ skills, contactState, interests }) {
+export default function Cv({ skills, contactState, interests, profileDescription }) {
   return (
     <>
       <div className="cv-wrapper">
@@ -12,7 +12,9 @@ export default function Cv({ skills, contactState, interests }) {
             contactState={contactState}
             interests={interests}
           />
-          <TechnicalInfo />
+          <TechnicalInfo
+            profileDescription={profileDescription}
+          />
         </section>
       </div>
     </>

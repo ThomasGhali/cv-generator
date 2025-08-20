@@ -8,7 +8,7 @@ import FormSection from './FormSection'
 //   )
 // }
 
-export default function Form({ skillsState, contactState, setInterests }) {
+export default function Form({ skillsState, contactState, setInterests, setProfileDescription }) {
   const { skills, setSkills } = skillsState;
   const { setEmail, setPhone, setWebsite } = contactState;
 
@@ -59,7 +59,7 @@ export default function Form({ skillsState, contactState, setInterests }) {
             </label>
             <label>
             Skill {index + 1}'s Proficiency
-            <p className='drag-bar-note'>(Drag the golden bar)</p>
+            <p className='tiny-note'>(Drag the golden bar)</p>
               <input 
                 name='range'
                 type="range" 
@@ -132,8 +132,8 @@ export default function Form({ skillsState, contactState, setInterests }) {
           name="Profile"
           demo={true}
         >
-          <textarea ></textarea>
-          <button style={{marginTop: '10px'}} type="button">Add Profile description</button>
+          <textarea onChange={(e) => setProfileDescription(e.target.value)}></textarea>
+          <p className='tiny-note'>(Saved while typing)</p>
         </FormSection>
       </form>
     </>
