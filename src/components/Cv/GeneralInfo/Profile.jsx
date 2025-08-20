@@ -10,7 +10,8 @@ function Skill({ range, skillName }) {
   )
 }
 
-export default function Profile({ skills }) {
+export default function Profile({ skills, contactState, interests }) {
+  const {email, phone, website} = contactState;
   function viewSkills() {
     return skills.map((skill, index) => (
       <Skill 
@@ -18,6 +19,12 @@ export default function Profile({ skills }) {
         range={skill.range} 
         skillName={skill.skillName} 
       />
+    ))
+  }
+
+  function viewInterests() {
+    return interests.map((interest, index) => (
+      <p key={index}>{interest}</p>
     ))
   }
 
@@ -40,15 +47,15 @@ export default function Profile({ skills }) {
             <div className="contact__info">
               <div className="contact__section-wrapper">
                 <span className="contact__highlight">Email</span>
-                <p >thomasmetias29@gmail.com</p>
+                <p >{email}</p>
               </div>
               <div className="contact__section-wrapper">
                 <span className="contact__highlight">Phone</span>
-                <p>+1 234 567-8900</p>
+                <p>{phone}</p>
                 </div>
               <div className="contact__section-wrapper">
                 <span className="contact__highlight">Website</span>
-                <p>thomasghali.com</p>
+                <p>{website}</p>
               </div>
             </div>
           </section>
@@ -58,13 +65,11 @@ export default function Profile({ skills }) {
             {viewSkills()}
           </section>}
 
-          <section className="interests profile-section">
+          {interests.length > 0 &&
+            <section className="interests profile-section">
             <SectionsHeader text="Interests" iconName="interests" font="gold" />
-            <p>minimalist arti</p>
-            <p>pingpong</p>
-            <p>freaking football</p>
-
-          </section>
+            {viewInterests()}
+          </section>}
         </section>
       </div>
     </>

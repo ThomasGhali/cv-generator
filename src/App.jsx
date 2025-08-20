@@ -4,7 +4,14 @@ import Cv from "./components/Cv/Cv.jsx"
 import Form from "./components/Form/Form.jsx"
 
 export default function App() {
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [website, setWebsite] = useState('');
+  
   const [skills, setSkills] = useState([]);
+
+  const [interests, setInterests] = useState([]);
+
 
   return(
     <>
@@ -13,8 +20,16 @@ export default function App() {
           <span className="generator-header__text">CV Generator</span>
       </header>
       <main className="main-content">
-        <Form skills={skills} setSkills={setSkills} />
-        <Cv skills={skills} />
+        <Form   
+          skillsState={{ skills, setSkills }}
+          contactState={{ setEmail, setPhone, setWebsite }}
+          setInterests={ setInterests }
+        />
+        <Cv 
+          contactState={{ email, phone, website }}
+          skills={skills}
+          interests={interests}
+        />
       </main>
     </>
   )

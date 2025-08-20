@@ -1,7 +1,8 @@
 import { Children, useState } from "react"
 
-export default function FormSection({ name, children }) {
-  const [isOpen, setIsOpen] = useState(true);
+export default function FormSection({ name, children, demo=false }) {
+  //      replace demo with false !!!!!!!!!
+  const [isOpen, setIsOpen] = useState(demo);
 
   return (
     <fieldset className="wrapper">
