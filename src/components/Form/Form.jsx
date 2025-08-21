@@ -16,7 +16,7 @@ export default function Form({
   setExperience,
   experience,
   education,
-  seteducation,
+  setEducation,
 }) {
   // State variables
   const { skills, setSkills } = skillsState;
@@ -117,7 +117,8 @@ export default function Form({
   }
 
   function handleEducation(e) {
-
+    const { name, value } = e.target;
+    setEducation(prev => ({...prev, [name]: value}))
   }
 
   return (
@@ -292,8 +293,8 @@ export default function Form({
             Graduation Date
             <input 
               type="month"
-              name='gradDate'
-              value={education.gradDate}
+              name='gradYear'
+              value={education.gradYear}
               onChange={(e) => handleEducation(e)}
             />
           </label>

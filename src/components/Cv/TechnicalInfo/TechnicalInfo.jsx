@@ -38,7 +38,7 @@ export default function TechnicalInfo({ profileDescription, experience, educatio
         <SectionsHeader iconName="education" text="Education" />
         <Education
           institution={education.institution}
-          college={education.degree}
+          degree={education.degree}
           location={education.location}
           gradYear={education.gradYear}
         />
