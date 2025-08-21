@@ -9,7 +9,7 @@ form *{
 form {
   margin: 10px;
   padding: 8px;
-  width: 350px;
+  width: 300px;
   border: 1px solid #ccc;
   border-radius: 3px;
   background-image: linear-gradient(to right, #f5f5f5, #ffffff);
@@ -51,8 +51,12 @@ input, textarea {
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 0.95rem;
+  font-size: 1rem;
   background: #fff;
+}
+
+textarea {
+  height: 45px;
 }
 
 input:focus, textarea:focus {

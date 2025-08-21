@@ -1,5 +1,6 @@
 import "./Profile.css"
 import SectionsHeader from "../SectionsHeader"
+import templateImg from '../../../assets/user-img-template.png'
 
 function Skill({ range, skillName }) {
   return (
@@ -10,7 +11,7 @@ function Skill({ range, skillName }) {
   )
 }
 
-export default function Profile({ skills, contactState, interests }) {
+export default function Profile({ userImg, skills, contactState, interests, nameProf }) {
   const {email, phone, website} = contactState;
   function viewSkills() {
     return skills.map((skill, index) => (
@@ -32,13 +33,14 @@ export default function Profile({ skills, contactState, interests }) {
     <>
       <div className="profile-wrapper">
         <section className="profile">
-          <div className="profile__img"></div>
+            <img className="profile__img" src={userImg || templateImg} alt="user image" />
+
           <div className="profile__name-title">
             <span className="profile__name">
-              Nina Lnade
+              {nameProf[0]}
             </span>
             <span>
-              Graphic Designer
+            {nameProf[1]}
             </span>
           </div>
           

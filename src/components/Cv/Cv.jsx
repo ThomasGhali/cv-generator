@@ -3,6 +3,7 @@ import TechnicalInfo from "./TechnicalInfo/TechnicalInfo"
 import './Cv.css'
 
 export default function Cv({ 
+  userImg,
   skills, 
   contactState, 
   interests, 
@@ -10,14 +11,17 @@ export default function Cv({
   experience,
   education,
   projects,
+  nameProf,
 }) {
   return (
     <>
       <div className="cv-wrapper">
         <section className="cv-section">
           <Profile 
-            skills={skills} 
+            userImg={userImg}
+            nameProf={nameProf}
             contactState={contactState}
+            skills={skills} 
             interests={interests}
           />
           <TechnicalInfo

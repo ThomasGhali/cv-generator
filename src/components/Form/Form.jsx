@@ -2,13 +2,9 @@ import { useState, Fragment } from 'react'
 import './Form.css'
 import FormSection from './FormSection'
 
-// function Skill() {
-//   return (
-
-//   )
-// }
-
 export default function Form({
+  setUserImg,
+  setNameProf,
   skillsState,
   contactState,
   setInterests,
@@ -41,6 +37,14 @@ export default function Form({
     projectFor: '',
     projectText: '',
     submit: false
+  }
+
+  function handleImageUpload(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const imageUrl = URL.createObjectURL(file);
+    setUserImg(imageUrl);
   }
 
   // Adds a skill with conditions
@@ -158,6 +162,31 @@ export default function Form({
         <fieldset>
           <legend>General Info</legend>
             <FormSection
+              name="Image"
+              demo
+            >
+              <input type="file" accept="image/*" onChange={handleImageUpload} />
+            </FormSection>
+
+            <FormSection
+              name="Name"
+            >
+              <label> Name
+                <input 
+                  type="text"
+                  onChange={(e) => setNameProf(prev => [e.target.value, prev[1]])}
+                />
+              </label>
+              <label> Profession
+                <input 
+                  type="text" 
+                  onChange={(e) => setNameProf((prev) => [prev[0], e.target.value])}
+                />
+              </label>
+
+            </FormSection>
+
+            <FormSection
               name="Contact"
             >
               <label htmlFor="email">Email </label>
@@ -215,6 +244,7 @@ export default function Form({
             <textarea onChange={(e) => setProfileDescription(e.target.value)}></textarea>
             <p className='tiny-note'>(Saved automatically)</p>
           </FormSection>
+
           <FormSection
             name="Experience"
           >
@@ -330,7 +360,6 @@ export default function Form({
           </FormSection>
           <FormSection
             name="Portofolio"
-            demo={true}
           >
             <label>
               Project Name
@@ -378,6 +407,8 @@ export default function Form({
     </>
   )
 }
+
+
 
 
 

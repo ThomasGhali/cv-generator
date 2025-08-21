@@ -4,6 +4,9 @@ import Cv from "./components/Cv/Cv.jsx"
 import Form from "./components/Form/Form.jsx"
 
 export default function App() {
+  // Stores name and profession
+  const [userImg, setUserImg] = useState('');
+  const [nameProf, setNameProf] = useState(['', ''])
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [website, setWebsite] = useState('');
@@ -38,6 +41,7 @@ export default function App() {
       </header>
       <main className="main-content">
         <Form   
+          setUserImg={setUserImg}
           skillsState={{ skills, setSkills }}
           contactState={{ setEmail, setPhone, setWebsite }}
           setInterests={ setInterests }
@@ -48,8 +52,11 @@ export default function App() {
           setEducation={setEducation}
           projects={projects}
           setProjects={setProjects}
+          setNameProf={setNameProf}
         />
         <Cv 
+          userImg={userImg}
+          nameProf={nameProf}
           contactState={{ email, phone, website }}
           skills={skills}
           interests={interests}

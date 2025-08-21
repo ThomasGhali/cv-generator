@@ -1,9 +1,7 @@
 .cv-wrapper {
   height: 100vh;
-  max-height: 297mm;
-  /* width: 50vw; */
-  min-width: 500px;
-  max-width: 210mm;
+  width: max(600px, 210mm);
+  min-width: 600px;
   overflow-y: auto;
   overflow-x: auto;
   position: sticky;
@@ -15,6 +13,8 @@
 .cv-section {
   display: flex;
   width: 100%;
+  max-height: 297mm;
+
   aspect-ratio: 210 / 297;
   overflow-y: auto;
 }
