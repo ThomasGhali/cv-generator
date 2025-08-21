@@ -17,6 +17,8 @@ export default function Form({
   experience,
   education,
   setEducation,
+  projects,
+  setProjects,
 }) {
   // State variables
   const { skills, setSkills } = skillsState;
@@ -34,6 +36,12 @@ export default function Form({
     text: "",
     submit: false
   };
+  const emptyProject = {
+    projectName: '',
+    projectFor: '',
+    projectText: '',
+    submit: false
+  }
 
   // Adds a skill with conditions
   function handleSkillBtn() {
@@ -121,6 +129,29 @@ export default function Form({
     setEducation(prev => ({...prev, [name]: value}))
   }
 
+  function handleProjects(e) {
+    const { name, value } = e.target;
+    setProjects(prev => {
+      return prev.map((project, index) => 
+        index === prev.length - 1 ? {...project, [name]: value} : project
+      );
+    })
+  }
+
+  function handleAddProjectBtn() {
+    setProjects(prev => {
+      const updated = prev.map((project, index) =>
+        index === prev.length - 1 ? { ...project, submit: true } : project
+      );
+  
+      return [...updated, emptyProject];
+    });
+  }
+
+  function handleResetProjectBtn() {
+    setProjects([emptyProject]);
+  }
+
   return (
     <>
       <form action="">
@@ -132,7 +163,7 @@ export default function Form({
             type="email"
             name="email"
             id="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={setEmail}
           />
 
           <label htmlFor="phone">Phone </label>
@@ -141,14 +172,14 @@ export default function Form({
             placeholder="+1 234 567 890"
             name="phone"
             id="phone"
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={setPhone}
           />
           <label htmlFor="website">Website </label>
           <input
             type="url"
             name="website"
             id="website"
-            onChange={(e) => setWebsite(e.target.value)}
+            onChange={setWebsite}
           />
 
         </FormSection>
@@ -171,7 +202,7 @@ export default function Form({
             id="interests"
             placeholder='e.g. Minimalist Art'
             value={interestInput}
-            onChange={(e) => setInterestInput(e.target.value)}
+            onChange={setInterestInput}
           />
           <button type="button" className='down-margin' onClick={handleAddInterestsBtn}>Add an interest</button>
           <button type="button" onClick={handleResetInterestsBtn}>Reset interests</button>
@@ -180,7 +211,7 @@ export default function Form({
         <FormSection
           name="Profile"
         >
-          <textarea onChange={(e) => setProfileDescription(e.target.value)}></textarea>
+          <textarea onChange={setProfileDescription}></textarea>
           <p className='tiny-note'>(Saved automatically)</p>
         </FormSection>
 
@@ -193,7 +224,7 @@ export default function Form({
               name="position"
               value={experience[experience.length - 1].position}
               placeholder='e.g. Senior Front-End Developer'
-              onChange={(e) => handleExperience(e)}
+              onChange={handleExperience}
             />
           </label>        
           <label>
@@ -202,7 +233,7 @@ export default function Form({
               type="text"
               name='company'
               value={experience[experience.length - 1].company}
-              onChange={(e) => handleExperience(e)}
+              onChange={handleExperience}
             />
           </label>          
           <label>
@@ -211,7 +242,7 @@ export default function Form({
               type="text" 
               name='location'
               value={experience[experience.length - 1].location}
-              onChange={(e) => handleExperience(e)}
+              onChange={handleExperience}
               placeholder='e.g. New York, NY'
             />
           </label>          
@@ -221,7 +252,7 @@ export default function Form({
               type="month"
               name='from'
               value={experience[experience.length - 1].from}
-              onChange={(e) => handleExperience(e)}
+              onChange={handleExperience}
             />
           </label>
           <label>
@@ -230,7 +261,7 @@ export default function Form({
               type="month"
               name='to'
               value={experience[experience.length - 1].to}
-              onChange={(e) => handleExperience(e)}
+              onChange={handleExperience}
             />
           </label>
           <label>
@@ -259,7 +290,6 @@ export default function Form({
 
         <FormSection
           name="Education"
-          demo={true}
         >
           <label>
             Degree
@@ -267,7 +297,7 @@ export default function Form({
               name="degree"
               value={education.degree}
               placeholder='e.g. Bachelor of Arts'
-              onChange={(e) => handleEducation(e)}
+              onChange={handleEducation}
             />
           </label>
           <label>
@@ -276,7 +306,7 @@ export default function Form({
               type="text"
               name='institution'
               value={education.institution}
-              onChange={(e) => handleEducation(e)}
+              onChange={handleEducation}
             />
           </label>
           <label>
@@ -285,7 +315,7 @@ export default function Form({
               type="text" 
               name='location'
               value={education.location}
-              onChange={(e) => handleEducation(e)}
+              onChange={handleEducation}
               placeholder='e.g. New York, NY'
             />
           </label>
@@ -295,11 +325,60 @@ export default function Form({
               type="month"
               name='gradYear'
               value={education.gradYear}
-              onChange={(e) => handleEducation(e)}
+              onChange={handleEducation}
             />
           </label>
+        </FormSection>
+
+        <FormSection
+          name="Portofolio"
+          demo={true}
+        >
+          <label>
+            Project Name
+            <input type="text"
+              name="projectName"
+              value={projects[projects.length - 1].projectName}
+              placeholder='e.g. Social Media Campaign'
+              onChange={handleProjects}
+            />
+          </label>
+          <label>
+            For
+            <input 
+              type="text"
+              name='projectFor'
+              value={projects[projects.length - 1].projectFor}
+              onChange={handleProjects}
+            />
+          </label>
+          <label>
+            Info
+            <textarea 
+              name="projectText" 
+              value={projects[projects.length - 1].projectText}
+              onChange={handleProjects}
+            />
+          </label>
+          <p className='tiny-note'>(all changes are dynamically saved)</p>       
+          <button 
+            className='down-margin' 
+            type='button'
+            onClick={handleAddProjectBtn}
+          >
+            Add Blank Project
+          </button>
+          <button 
+            type="button"
+            onClick={handleResetProjectBtn}
+          >
+            Reset All Projects
+          </button>
+
         </FormSection>
       </form>
     </>
   )
 }
+
+

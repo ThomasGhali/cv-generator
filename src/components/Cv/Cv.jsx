@@ -9,6 +9,7 @@ export default function Cv({
   profileDescription,
   experience,
   education,
+  projects,
 }) {
   return (
     <>
@@ -23,6 +24,7 @@ export default function Cv({
             profileDescription={profileDescription}
             experience={experience}
             education={education}
+            projects={projects}
           />
         </section>
       </div>

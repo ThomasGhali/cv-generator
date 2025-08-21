@@ -5,19 +5,17 @@ import Education from "./Education"
 import Portofolio from './Portofolio'
 
 
-export default function TechnicalInfo({ profileDescription, experience, education }) {
+export default function TechnicalInfo({ profileDescription, experience, education, projects }) {
   const viewExperience = () => {
     return experience.map(((exp, index) => (
-      <Experience
-        key={index}
-        position={exp.position}
-        company={exp.company}
-        location={exp.location}
-        from={exp.from}
-        to={exp.to}
-        text={exp.text}
-      />
+      <Experience key={index} {...exp} />
     )))
+  }
+
+  function viewPortofolio() {
+    return projects.map((project, index) => (
+      <Portofolio key={index} {...project} />
+    ))
   }
 
   return (
@@ -46,16 +44,7 @@ export default function TechnicalInfo({ profileDescription, experience, educatio
 
       <section className="portofolio">
         <SectionsHeader iconName="portofolio" text="Portofolio" />
-        <Portofolio
-          projectName="Social Media Campaign"
-          projectFor="Eco Wave Brand"
-          projectText="transformed their social media presence with cohesive visuals and engagin graphics."
-        />
-        <Portofolio
-          projectName="Social Media Campaign"
-          projectFor="Eco Wave Brand"
-          projectText="transformed their social media presence with cohesive visuals and engagin graphics."
-        />
+        {viewPortofolio()}
       </section>
     </div>
   )

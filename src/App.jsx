@@ -23,6 +23,13 @@ export default function App() {
     gradYear: '',
   });
 
+  const [projects, setProjects] = useState([{
+    projectName: '',
+    projectFor: '',
+    projectText: '',
+    submit: false
+  }])
+
   return(
     <>
       <header className="generator-header">
@@ -39,6 +46,8 @@ export default function App() {
           experience={experience}
           education={education}
           setEducation={setEducation}
+          projects={projects}
+          setProjects={setProjects}
         />
         <Cv 
           contactState={{ email, phone, website }}
@@ -47,6 +56,7 @@ export default function App() {
           profileDescription={profileDescription}
           experience={experience}
           education={education}
+          projects={projects}
         />
       </main>
     </>
