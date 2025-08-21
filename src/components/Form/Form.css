@@ -126,6 +126,8 @@ input[type="range"]::-webkit-slider-thumb {
   color: black;
 }
 
-/* ==========================
-  EXPERIENCE SECTIONS STYLES
-========================== */
+fieldset {
+  border: 1px solid rgb(207, 205, 205);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
