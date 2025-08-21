@@ -2,7 +2,14 @@ import Profile from "./GeneralInfo/Profile.jsx"
 import TechnicalInfo from "./TechnicalInfo/TechnicalInfo"
 import './Cv.css'
 
-export default function Cv({ skills, contactState, interests, profileDescription }) {
+export default function Cv({ 
+  skills, 
+  contactState, 
+  interests, 
+  profileDescription,
+  experience,
+  education,
+}) {
   return (
     <>
       <div className="cv-wrapper">
@@ -14,6 +21,8 @@ export default function Cv({ skills, contactState, interests, profileDescription
           />
           <TechnicalInfo
             profileDescription={profileDescription}
+            experience={experience}
+            education={education}
           />
         </section>
       </div>

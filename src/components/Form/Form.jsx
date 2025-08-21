@@ -14,11 +14,26 @@ export default function Form({
   setInterests,
   setProfileDescription,
   setExperience,
+  experience,
+  education,
+  seteducation,
 }) {
+  // State variables
   const { skills, setSkills } = skillsState;
   const { setEmail, setPhone, setWebsite } = contactState;
 
   const [interestInput, setInterestInput] = useState('');
+
+  // variables
+  const emptyExperience = {
+    position: "",
+    company: "",
+    location: "",
+    from: "",
+    to: "",
+    text: "",
+    submit: false
+  };
 
   // Adds a skill with conditions
   function handleSkillBtn() {
@@ -77,24 +92,32 @@ export default function Form({
       )
     )
   }
-  // work on last array item
-  // if last array item has a submit key to value of true make a new object
-  // and set its submit to false
+
   function handleExperience(e) {
     const { name, value } = e.target;
-
     setExperience(prev => {
-      const last = prev[prev.length - 1];
-
-      if (last.submit) {
-        // if last item is submitted initiate a new one
-        return [...prev, {submit: false, [name]: value }]
-      }
-
       return prev.map((exp, index) => 
         index === prev.length - 1 ? {...exp, [name]: value} : exp
       );
     })
+  }
+
+  function handleAddExperienceBtn() {
+    setExperience(prev => {
+      const updated = prev.map((exp, index) =>
+        index === prev.length - 1 ? { ...exp, submit: true } : exp
+      );
+  
+      return [...updated, emptyExperience];
+    });
+  }
+
+  function handleResetExperienceBtn() {
+    setExperience([emptyExperience]);
+  }
+
+  function handleEducation(e) {
+
   }
 
   return (
@@ -157,16 +180,17 @@ export default function Form({
           name="Profile"
         >
           <textarea onChange={(e) => setProfileDescription(e.target.value)}></textarea>
-          <p className='tiny-note'>(Saved while typing)</p>
+          <p className='tiny-note'>(Saved automatically)</p>
         </FormSection>
 
         <FormSection
           name="Experience"
-          demo={true}
         >
           <label>
             Position
             <input type="text" 
+              name="position"
+              value={experience[experience.length - 1].position}
               placeholder='e.g. Senior Front-End Developer'
               onChange={(e) => handleExperience(e)}
             />
@@ -176,6 +200,7 @@ export default function Form({
             <input 
               type="text"
               name='company'
+              value={experience[experience.length - 1].company}
               onChange={(e) => handleExperience(e)}
             />
           </label>          
@@ -184,6 +209,7 @@ export default function Form({
             <input 
               type="text" 
               name='location'
+              value={experience[experience.length - 1].location}
               onChange={(e) => handleExperience(e)}
               placeholder='e.g. New York, NY'
             />
@@ -193,6 +219,7 @@ export default function Form({
             <input 
               type="month"
               name='from'
+              value={experience[experience.length - 1].from}
               onChange={(e) => handleExperience(e)}
             />
           </label>
@@ -201,11 +228,75 @@ export default function Form({
             <input 
               type="month"
               name='to'
+              value={experience[experience.length - 1].to}
               onChange={(e) => handleExperience(e)}
             />
-          </label>            
-          <button className='down-margin' type='button'>Add Experience</button>
-          <button type="button">Reset All Experiences</button>
+          </label>
+          <label>
+            Experience More Info.
+            <textarea 
+              name="text" 
+              value={experience[experience.length - 1].text}
+              onChange={handleExperience}
+            />
+          </label>
+          <p className='tiny-note'>(all changes are dynamically saved)</p>       
+          <button 
+            className='down-margin' 
+            type='button'
+            onClick={handleAddExperienceBtn}
+          >
+            Add Blank Experience
+          </button>
+          <button 
+            type="button"
+            onClick={handleResetExperienceBtn}
+          >
+            Reset All Experiences
+          </button>
+        </FormSection>
+
+        <FormSection
+          name="Education"
+          demo={true}
+        >
+          <label>
+            Degree
+            <input type="text"
+              name="degree"
+              value={education.degree}
+              placeholder='e.g. Bachelor of Arts'
+              onChange={(e) => handleEducation(e)}
+            />
+          </label>
+          <label>
+            Institution
+            <input 
+              type="text"
+              name='institution'
+              value={education.institution}
+              onChange={(e) => handleEducation(e)}
+            />
+          </label>
+          <label>
+            Location
+            <input 
+              type="text" 
+              name='location'
+              value={education.location}
+              onChange={(e) => handleEducation(e)}
+              placeholder='e.g. New York, NY'
+            />
+          </label>
+          <label>
+            Graduation Date
+            <input 
+              type="month"
+              name='gradDate'
+              value={education.gradDate}
+              onChange={(e) => handleEducation(e)}
+            />
+          </label>
         </FormSection>
       </form>
     </>

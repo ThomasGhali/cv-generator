@@ -16,6 +16,13 @@ export default function App() {
 
   const [experience, setExperience] = useState([{submit: false}]);
 
+  const [education, setEducation] = useState({
+    degree: '',
+    institution: '',
+    location: '',
+    gradYear: '',
+  });
+
   return(
     <>
       <header className="generator-header">
@@ -29,6 +36,9 @@ export default function App() {
           setInterests={ setInterests }
           setProfileDescription={setProfileDescription}
           setExperience={setExperience}
+          experience={experience}
+          education={education}
+          setEducation={setEducation}
         />
         <Cv 
           contactState={{ email, phone, website }}
@@ -36,6 +46,7 @@ export default function App() {
           interests={interests}
           profileDescription={profileDescription}
           experience={experience}
+          education={education}
         />
       </main>
     </>
